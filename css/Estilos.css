@@ -39,6 +39,16 @@ body{
    position:relative;
 }
 
+#contenedor_voto{
+   background: white;
+   top:20px;
+   border: 1px solid black;
+   width: 500px;
+   height: 370px;
+   padding: 20px;
+   position:relative;
+}
+
 h1{
     margin: 0 0 20px 0;
     padding-bottom: 10px;
@@ -66,7 +76,7 @@ label{
     font-weight: bold;
 }
 
-input[type="submit"]{
+#login{
     position: absolute;
     right: 20px;
     background-color: #33cc00;
@@ -92,6 +102,26 @@ input[type="submit"]{
     padding: 10px;
 }
 
+#volver{
+    position: absolute;
+}
+
 select{
     padding: 5px;
+}
+
+p{
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+    color: red;
+}
+
+span{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#datos{
+    font-weight: normal;
 }

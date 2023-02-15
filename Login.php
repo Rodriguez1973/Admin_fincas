@@ -12,7 +12,7 @@ if(isset($_POST['login'])){
     if(isset($conexionBD)){
         $usuario= $_POST['usuario'];
         $password= $_POST['password'];
-        $password=hash('sha256',$password);
+        $password=hash('sha256',$password); //Codifica la contraseña.
                 
         $stmt=$conexionBD->stmt_init();
         $consulta="select * from usuarios where usuario=?;";
@@ -44,12 +44,13 @@ if(isset($_POST['login'])){
         <title>Administrador de fincas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estilos.css"/>
+        <link rel="stylesheet" href="./css/Estilos.css"/>
     </head>
     <body>
         <form name="formulario_login" id="formulario_login" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div id="contenedor_login">
                 <h1>Login</h1>
+                <!--Usuario-->
                 <div class="input">
                     <div class="icono">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -61,6 +62,7 @@ if(isset($_POST['login'])){
                 </div>
                 <br>
                 <br>
+                <!--Contraseña-->
                 <div class="input">
                     <div class="icono">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
@@ -71,7 +73,7 @@ if(isset($_POST['login'])){
                     </div>
                     <input type="password" name="password" id="password" required placeholder="Contraseña">
                 </div>
-
+                <!--Elección de idioma-->
                 <h3>Elegir Idioma:</h3>
                 <input type="radio" name="idioma" id="idioma" checked value="castellano">Castellano
                 <input type="radio" name="idioma" id="idioma" value="inglés">Inglés
