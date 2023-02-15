@@ -15,14 +15,14 @@ if(isset($_POST['login'])){
         $password=hash('sha256',$password); //Codifica la contraseña.
                 
         $stmt=$conexionBD->stmt_init();
-        $consulta="select * from usuarios where usuario=?;";
+        $consulta="select count(*) as cont from usuarios where usuario=? and pass=?;";
         $stmt->prepare($consulta);
-        $stmt->bind_param('s', $usuario);
+        $stmt->bind_param('ss', $usuario, $password);
         if($stmt->execute()){
             $resultado=$stmt->get_result();
             if(isset($resultado)){
                 $registro=$resultado->fetch_assoc();
-                if(isset($registro) && $registro['pass']===$password){
+                if($registro['cont']==1){
                     $_SESSION['usuario']=$usuario;
                     $_SESSION['idioma']=$_POST['idioma'];
                     header("Location: Opciones.php");
